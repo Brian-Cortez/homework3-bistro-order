@@ -1,7 +1,5 @@
 <?php
 
-echo "<h1> Welcome to Baristaro!<h1><br>";
-
 session_start();
 
 function order(): string {
