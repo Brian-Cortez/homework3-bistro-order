@@ -1,0 +1,42 @@
+*{
+    background-color: rgb(244, 215, 195);
+    padding: 0;
+    margin: 0;
+}
+
+#Welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Inputs{
+    display: grid;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding-right: 15%;
+    padding: 1.6rem;
+    margin-top: 2%;
+    background-color: beige;
+}
+.content-grid{
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 1.5rem;
+    margin-top: 1.6rem;
+}
+.panel{
+    padding: 1.6rem;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--bg-soft);
+    box-shadow: var(--shadow);
+}
+label{
+    background-color: beige;
+}
+section{
+    display: block;
+    unicode-bidi: isolate;
+}
