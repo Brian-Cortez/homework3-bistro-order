@@ -4,9 +4,6 @@ $orderSummary = order();
 ?>
 
 
-
-
-
 <div class="receipt-card"><?= $orderSummary; ?></div>
 
 <div class="insight-card">

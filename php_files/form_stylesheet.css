@@ -43,7 +43,9 @@ body {
 label {
     background-color: beige;
 }
-
+a {
+    text-decoration: none;
+}
 input,
 select {
     font-size: 18px;
@@ -59,6 +61,22 @@ select {
     background-color: bisque;
     padding: 8px;
     margin: 5%;
+}
+
+.button-setup {
+    display: block;
+    width: 420px;
+    margin: 2rem auto;
+    padding: 12px 20px;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: black; 
+
+    background-color: bisque;
+    border: 2px solid black;
+    border-radius: 0;
 }
 
 .radio-list {

@@ -3,10 +3,14 @@
 session_start();
 
 function order(): string {
+   $name = trim($_POST['name'] ?? 'none'); 
    $dessert = trim($_POST['dessert'] ?? 'none');
    $drink = trim($_POST['drink'] ?? 'none');
    $drinkSize = trim($_POST['drinkSize'] ?? '');
 
+   $_SESSION['name'] = $name !== '' &&  $name !== 'none'
+      ? $name 
+      : '(not selected)';   
    $_SESSION['dessert'] = $dessert !== '' && $dessert !== 'none'
       ? $dessert
       : '(not selected)';
@@ -17,7 +21,8 @@ function order(): string {
       ? $drinkSize
       : '(not selected)';
 
-   return "Dessert: {$_SESSION['dessert']}<br>"
+   return "Name: {$_SESSION['name']}<br>" 
+      . "Dessert: {$_SESSION['dessert']}<br>"
       . "Drink: {$_SESSION['drink']}<br>"
       . "Drink size: {$_SESSION['drinkSize']}";
 }
@@ -29,7 +34,7 @@ function sessionValue(string $key): string {
 function completedChoiceCount(): int {
    $count = 0;
 
-   foreach (['dessert', 'drink', 'drinkSize'] as $key) {
+   foreach (['name', 'dessert', 'drink', 'drinkSize'] as $key) {
       if (sessionValue($key) !== '(not selected)') {
          $count++;
       }
@@ -41,12 +46,12 @@ function completedChoiceCount(): int {
 function completionMessage(): string {
    $count = completedChoiceCount();
 
-   if ($count === 3) {
+   if ($count === 4) {
       return 'Your order is complete and ready to submit.';
    }
 
    if ($count === 0) {
-      return 'Start by choosing a dessert, a drink, and a size.';
+      return 'Start by entering your name, choosing a dessert, a drink, and a size.';
    }
 
    return "You have completed {$count} of 3 order choices.";
@@ -154,7 +159,9 @@ function orderProfile(): string {
 
    return 'No selections yet';
 }
-
+function nameValue(): string {
+    return htmlspecialchars($_SESSION['name'] ?? '', ENT_QUOTES, 'UTF-8');
+}
 function dessertSelected(string $dessert): string {
    return ($_SESSION['dessert'] ?? '') === $dessert ? 'selected' : '';
 }

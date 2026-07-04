@@ -1,6 +1,5 @@
 <?php
 require "order_functions.php";
-require "forget_order.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@ require "forget_order.php";
             <div class="Inputs">
 
                 <label for="cn">Customer Name:</label>
-                <input type="text" name="customerName" id="cn" size="30">
+                <input type="text" name="name" id="cn" size="30" value="<?= nameValue()?>">
 
                 <label for="desrt">Dessert:</label>
                 <select id="desrt" name="dessert">
@@ -65,7 +64,7 @@ require "forget_order.php";
                 </div>
 
                 <button type="submit" class="order-buttons">Place Order!</button>
-                <button type="reset" class="order-buttons" <?= resetSession() ?>>Place a new order!</button>
+                <a href="forget_order.php" class="button-setup"> Place a new order!</a>
 
             </div>
         </form>
